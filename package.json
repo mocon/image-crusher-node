@@ -1,0 +1,14 @@
+{
+  "name": "image-crusher-node",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "imagemin": "5.3.1",
+    "imagemin-jpegtran": "5.0.2",
+    "imagemin-pngquant": "5.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "1.11.0"
+  }
+}
