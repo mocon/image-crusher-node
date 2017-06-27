@@ -9,7 +9,9 @@ export default {
             jsnext: true,
             main: true
         }),
-        commonjs()
+        commonjs({
+            include: 'node_modules/**'
+        })
     ],
     dest: 'dist/index.js'
 };
