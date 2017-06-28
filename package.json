@@ -11,5 +11,8 @@
     "imagemin": "5.3.1",
     "imagemin-jpegtran": "5.0.2",
     "imagemin-pngquant": "5.0.1"
+  },
+  "devDependencies": {
+    "eslint": "4.1.1"
   }
 }

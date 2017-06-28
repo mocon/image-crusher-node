@@ -14,7 +14,8 @@ exports.crushImages = function(event, context, callback) {
 
     s3.getObject(params, (err, data) => {
         if (err) {
-            console.log(`Error getting object ${key} from bucket ${bucket}. Make sure they exist and your bucket is in the same region as this function.`, err);
+            const message = `Error getting object ${key} from bucket ${bucket}. Make sure they exist and your bucket is in the same region as this function.`;
+            console.log(message, err);
             callback(message);
         } else {
             function crush(buffer) {
@@ -34,9 +35,7 @@ exports.crushImages = function(event, context, callback) {
                     console.log('Attempting to save crushed file.', 'crushedFile:', crushedFile);
 
                     s3.putObject(crushedFile, function(err, data) {
-                        (err)
-                        ? console.log('There was an error during s3.putObject', err, err.stack)
-                        : console.log('s3.putObject successful', 'data:', data);
+                        (err) ? console.log('There was an error during s3.putObject', err, err.stack) : console.log('s3.putObject successful', 'data:', data);
                     });
                 }).catch(err => {
                     console.log('There was an error while crushing the file.', 'Error:', err);
@@ -51,4 +50,4 @@ exports.crushImages = function(event, context, callback) {
             callback(null, data.ContentType);
         }
     });
-}
+};
