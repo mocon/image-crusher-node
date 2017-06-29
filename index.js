@@ -26,8 +26,10 @@ exports.crushImages = function(event, context, callback) {
                         imageminPngquant({ quality: '65-80' })
                     ]
                 }).then(file => {
+                    console.log('file:', file);
+
                     const crushedFile = {
-                        Body: file,
+                        Body: JSON.stringify(file),
                         Bucket: params.Bucket,
                         Key: params.Key
                     };
